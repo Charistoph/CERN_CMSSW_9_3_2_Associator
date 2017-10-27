@@ -36,11 +36,12 @@ process.maxEvents = cms.untracked.PSet(
 
 
 # Input source
-#    fileNames = cms.untracked.vstring('root://hephyse.oeaw.ac.at//dpm/oeaw.ac.at/home/cms/store/user/adamw/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/171020_115233/0000/step2_1.root'),
-#   fileNames = cms.untracked.vstring('file:CMSSW_9_3_0_pre1/src/10001.0_SingleElectronPt10+SingleElectronPt10_pythia8_2017_GenSimFull+DigiFull_2017+RecoFull_2017+ALCAFull_2017+HARVESTFull_2017/step2.root'),
-#    fileNames = cms.untracked.vstring('file:/afs/cern.ch/work/c/cbernkop/condor_output/10000_events/step2.root'),
+# file:/afs/cern.ch/work/c/cbernkop/condor_output/10000_events/step2.root
+# file:/afs/cern.ch/work/a/adamwo/Bernkopf/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/step2_1.root
+# root://hephyse.oeaw.ac.at//dpm/oeaw.ac.at/home/cms/store/user/adamw/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/171020_115233/0000/step2_1.root
+# file:CMSSW_9_3_0_pre1/src/10001.0_SingleElectronPt10+SingleElectronPt10_pythia8_2017_GenSimFull+DigiFull_2017+RecoFull_2017+ALCAFull_2017+HARVESTFull_2017/step2.root
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:/afs/cern.ch/work/a/adamwo/Bernkopf/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/step2_1.root'),
+    fileNames = cms.untracked.vstring('root://hephyse.oeaw.ac.at//dpm/oeaw.ac.at/home/cms/store/user/adamw/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/171020_115233/0000/step2_1.root'),
     secondaryFileNames = cms.untracked.vstring()
 )
 
