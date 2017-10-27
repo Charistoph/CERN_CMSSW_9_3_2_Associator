@@ -1,0 +1,33 @@
+<use name="DataFormats/TrackReco"/>
+<use name="SimDataFormats/Track"/>
+<use name="FWCore/Framework"/>
+<use name="FWCore/PluginManager"/>
+<use name="FWCore/ParameterSet"/>
+
+# For TFile
+<use name="PhysicsTools/UtilAlgos"/>
+
+# I think i need this for the Assciator
+#<use name="afs/cern.ch/user/c/cbernkop/Associator/CMSSW_9_3_2/src/Analyzer_Folder/MyTrackAssociator"/>
+# Produziert immer einen Fehler
+#<use name="SimTracker/TrackerAssociatorProducers"/>
+
+# For Associator
+<use name="SimDataFormats/Associations"/>
+<use name="SimDataFormats/TrackingAnalysis"/>
+<use name="SimTracker/TrackerHitAssociation"/>
+<use name="DataFormats/Common"/>
+<use name="DataFormats/TrackerRecHit2D"/>
+<use name="DataFormats/TrackerCommon"/>
+<use name="DataFormats/HepMCCandidate"/>
+<use name="TrackingTools/Records"/>
+<use name="TrackingTools/GeomPropagators"/>
+<use name="TrackingTools/TrajectoryState"/>
+<use name="TrackingTools/PatternTools"/>
+<use name="Geometry/CommonDetUnit"/>
+<use name="Geometry/Records"/>
+<use name="Geometry/TrackerNumberingBuilder"/>
+
+<export>
+  <lib name="1"/>
+</export>
