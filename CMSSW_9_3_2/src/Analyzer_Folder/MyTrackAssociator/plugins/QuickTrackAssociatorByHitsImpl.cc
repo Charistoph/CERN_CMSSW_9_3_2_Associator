@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "QuickTrackAssociatorByHitsImpl.h"
+#include "Analyzer_Folder/MyTrackAssociator/interface/QuickTrackAssociatorByHitsImpl.h"
 
 #include "SimTracker/TrackerHitAssociation/interface/TrackerHitAssociator.h"
 

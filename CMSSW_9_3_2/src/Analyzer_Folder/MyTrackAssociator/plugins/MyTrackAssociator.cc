@@ -36,9 +36,9 @@
   #include "SimDataFormats/Associations/interface/TrackToTrackingParticleAssociator.h"
   #include "SimTracker/TrackerHitAssociation/interface/TrackerHitAssociator.h"
   // wenn lokal gespeichert
-  #include "Analyzer_Folder/MyTrackAssociator/interface/QuickTrackAssociatorByHitsImpl.h"
+  //#include "Analyzer_Folder/MyTrackAssociator/interface/QuickTrackAssociatorByHitsImpl.h"
   // wenn von CMSSW genommen
-  //#include "SimTracker/TrackAssociatorProducers/plugins/QuickTrackAssociatorByHitsImpl.h"
+  #include "SimTracker/TrackAssociatorProducers/plugins/QuickTrackAssociatorByHitsImpl.h"
 
   #include "SimDataFormats/TrackingAnalysis/interface/TrackingParticle.h"
   #include "SimDataFormats/TrackingAnalysis/interface/TrackingParticleFwd.h"
