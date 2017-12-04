@@ -16,8 +16,8 @@ cmsRun /afs/cern.ch/user/c/cbernkop/Associator/associator_run_Cfg.py
 echo "2 complete: cmsRun"
 #mkdir /afs/cern.ch/work/c/cbernkop/condor_output/assoc_output_new
 #echo "3 complete: mkdir"
-cp output_gsf_associator.root /afs/cern.ch/work/c/cbernkop/condor_output/assoc_output_20171120/output_gsf_associator.root
+cp output_gsf_associator.root /afs/cern.ch/work/c/cbernkop/condor_output/assoc_output_20171120/3/output_gsf_associator.root
 echo "3 complete: cp output_gsf_associator.root"
-cp step3.root /afs/cern.ch/work/c/cbernkop/condor_output/assoc_output_20171120/step3.root
+cp step3.root /afs/cern.ch/work/c/cbernkop/condor_output/assoc_output_20171120/3/step3.root
 echo "4 complete: cp step3.root"
 

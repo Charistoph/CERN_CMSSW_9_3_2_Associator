@@ -1,8 +1,8 @@
-executable    = submitAssociator.sh
+executable    = submitAssociator_2.sh
 arguments     = $(ClusterID) $(ProcId)
-output        = condor_logs/output/hello.$(ClusterId).$(ProcId).out
-error         = condor_logs/error/hello.$(ClusterId).$(ProcId).err
-log           = condor_logs/log/hello.$(ClusterId).log
+output        = /afs/cern.ch/work/c/cbernkop/condor_output/condor_logs_932/output/hello.$(ClusterId).$(ProcId).out
+error         = /afs/cern.ch/work/c/cbernkop/condor_output/condor_logs_932/error/hello.$(ClusterId).$(ProcId).err
+log           = /afs/cern.ch/work/c/cbernkop/condor_output/condor_logs_932/log/hello.$(ClusterId).log
 +JobFlavour   = "nextweek"
 queue
 
