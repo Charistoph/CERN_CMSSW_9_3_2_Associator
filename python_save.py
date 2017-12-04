@@ -7,9 +7,7 @@ from math import sqrt,pi
 # functions
 
 # write to file
-def write_output(path,iteration,filename):
-    f = open(pathname + "/" + filename + "_" + iteration + ".csv","w+")
-
+def write_output():
     mixture_count = 0;
     # loop over tree, print variables
     for event in tree:
@@ -35,7 +33,8 @@ def write_output(path,iteration,filename):
                     f.write(str(format(tree.localCov(a,b), '.14f')) + "\n")
             mixture_count +=1
     #        print "\n"
-            print "mixture_count = " + str(mixture_count)
+            if (mixture_count % 500 == 0):
+                print "mixture_count = " + str(mixture_count)
     #        print "total mixture written (" + str(tree.ic_para) + ")"
         if tree.ic_para > -1:
             # component index
@@ -51,42 +50,52 @@ def write_output(path,iteration,filename):
                     f.write(str(format(tree.localCov(a,b), '.14f')) + "\n")
     #        print "mixture " + str(tree.ic_para) + " written"
 
-    f.close()
-
-# create output folder
-#outputpath = filename.replace(".root", "_csv")
-##namestr = filename.replace(".root", "")
-##outputpath = os.path.join('output_' + namestr)
-#if (os.path.exists(outputpath)==False):
-#    os.makedirs(outputpath)
-#    print "\npath created", outputpath
-#
-#print "\nPath and file routine complete.\n"
-
+    return mixture_count
 
 #-------------------------------------------------------------------------------
 # main code
 
 # open root file & tree
-pathname = "/afs/cern.ch/work/c/cbernkop/condor_output/assoc_output_20171120/"
-os.chdir(pathname)
+pathname = "/afs/cern.ch/work/c/cbernkop/condor_output/output_gsf_associator_files_wolfgang"
 
+# remove file
+os.remove(pathname + "/output.csv")
+
+# loop over associator files
+total_mixture_count = 0
 i = 0
-while i < 100:
-    i += 1
-    path = pathname + str(i)
-    filename = path + "/output_gsf_associator.root"
+while i < 10:
+    # open csv, append to end of file
+    f = open(pathname + "/output.csv","a")
 
+    i += 1
+    filename = pathname + "/output_gsf_associator_" + str(i) + ".root"
+
+# try to open new tree
     try:
         tf = ROOT.TFile(filename)
         tree_dir = tf.Get("MyTrackAssociator")
         tree = tree_dir.Get("track_associator_tree")
 
-        write_output(pathname,i,"output")
+#        f = open(pathname + "/output_" + str(i) + ".csv","w+")
 
+# write tree content into opened csv
+        mixture_count = write_output()
+        
+        total_mixture_count += mixture_count
+        print "tota_mixture_count = " + str(total_mixture_count)
+
+
+# if error - stop while loop
     except:
-        break
+        print(filename, "doesn't exist")
+        continue
 
+f.close()
 
 print "Python finished."
+
+f = open("output.csv","a")
+f.truncate()
+f.close()
 
