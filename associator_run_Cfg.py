@@ -31,7 +31,7 @@ process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 process.GlobalTag.globaltag = cms.string('91X_mcRun1_realistic_v2')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(-1)
+    input = cms.untracked.int32(250)
 )
 
 
@@ -41,7 +41,7 @@ process.maxEvents = cms.untracked.PSet(
 # root://hephyse.oeaw.ac.at//dpm/oeaw.ac.at/home/cms/store/user/adamw/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/171020_115233/0000/step2_1.root
 # file:CMSSW_9_3_0_pre1/src/10001.0_SingleElectronPt10+SingleElectronPt10_pythia8_2017_GenSimFull+DigiFull_2017+RecoFull_2017+ALCAFull_2017+HARVESTFull_2017/step2.root
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('file:/afs/cern.ch/work/a/adamwo/Bernkopf/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/step2_3.root'),
+    fileNames = cms.untracked.vstring('file:/afs/cern.ch/work/a/adamwo/Bernkopf/MultiElectron_FlatPt5To100/Run2_2017_phase1_2017_realistic_RAW_DIGI/step2_7.root'),
     secondaryFileNames = cms.untracked.vstring()
 )
 
