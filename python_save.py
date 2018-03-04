@@ -56,17 +56,17 @@ def write_output():
 # main code
 
 # open root file & tree
-pathname = "/afs/cern.ch/work/c/cbernkop/condor_output/output_gsf_associator_files_wolfgang"
+pathname = "/afs/cern.ch/work/c/cbernkop/condor_output/200kevents"
 
 # remove file
-os.remove(pathname + "/output.csv")
+os.remove("output.csv")
 
 # loop over associator files
 total_mixture_count = 0
 i = 0
-while i < 10:
+while i < 2200:
     # open csv, append to end of file
-    f = open(pathname + "/output.csv","a")
+    f = open("output.csv","a")
 
     i += 1
     filename = pathname + "/output_gsf_associator_" + str(i) + ".root"
