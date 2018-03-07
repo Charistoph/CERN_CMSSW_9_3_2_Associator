@@ -55,26 +55,37 @@ def write_output():
 #-------------------------------------------------------------------------------
 # main code
 
-# open root file & tree
-pathname = "/afs/cern.ch/work/c/cbernkop/condor_output/200kevents"
 
+# open root file & tree
+pathname = "/afs/cern.ch/work/c/cbernkop/condor_output/output_ex1_180208_144044"
 # remove file
-os.remove("output.csv")
+try:
+    os.remove(pathname + "/output.csv")
+except:
+    print("no output.csv file to remove found")
 
 # loop over associator files
 total_mixture_count = 0
+
 i = 0
-while i < 2200:
+max_files = 1
+while i <= max_files:
     # open csv, append to end of file
-    f = open("output.csv","a")
+    f = open(pathname + "/output.csv","a")
 
     i += 1
-    filename = pathname + "/output_gsf_associator_" + str(i) + ".root"
+# for opening files with associator executed by Christoph Bernkopf
+   # filename = pathname + "/output_gsf_associator_" + str(i) + ".root"
+
+# for opening files with associator executed by Wolfgang Adam
+   # filename = "/afs/cern.ch/work/a/adamwo/Bernkopf/MultiElectron_FlatPt5To100_ext1/180126_081601/output.root"
+    filename = "/afs/cern.ch/work/a/adamwo/Bernkopf/MultiElectron_FlatPt5To100_ext1/180208_144044/output.root"
 
 # try to open new tree
     try:
         tf = ROOT.TFile(filename)
-        tree_dir = tf.Get("MyTrackAssociator")
+        tree_dir = tf.Get("TrackRecSimByDR")
+#        tree_dir = tf.Get("MyTrackAssociator")
         tree = tree_dir.Get("track_associator_tree")
 
 #        f = open(pathname + "/output_" + str(i) + ".csv","w+")
