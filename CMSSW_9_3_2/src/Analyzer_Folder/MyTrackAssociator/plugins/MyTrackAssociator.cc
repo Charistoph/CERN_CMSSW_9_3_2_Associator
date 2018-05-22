@@ -16,6 +16,7 @@
 //
 //
 
+//// ---- Marker 1 ---- ////
 // system include files
 #include <memory>
 #include <iostream>
@@ -65,6 +66,7 @@
 
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 
+//// ---- Marker 2 ---- ////
 //
 // class declaration
 //
@@ -154,6 +156,7 @@ MyTrackAssociator::MyTrackAssociator(const edm::ParameterSet &iConfig) : tracker
                                                                          absoluteNumberOfHits_(iConfig.getParameter<bool>("AbsoluteNumberOfHits"))
 {
 
+    //// ---- Marker 3 ---- ////
     indexEvent = 0;
     assocseedfound = 0;
     mixturefound = 0;
@@ -199,6 +202,7 @@ MyTrackAssociator::makeHitAssociatorParameters(const edm::ParameterSet &iConfig)
     return hitAssociatorParameters;
 }
 
+//// ---- Marker 4 ---- ////
 // ------------ method called for each event  ------------
 void MyTrackAssociator::analyze(const edm::Event &iEvent, const edm::EventSetup &iSetup)
 //MyTrackAssociator::analyze(edm::StreamID, edm::Event& iEvent, const edm::EventSetup& iSetup) const
@@ -241,7 +245,7 @@ void MyTrackAssociator::analyze(const edm::Event &iEvent, const edm::EventSetup 
               << "#TrackingParticles = " << tpHandle->size() << "\n"
               << std::endl;
 
-    // Associator Funktion
+    // Associator Function
     auto impl = std::make_unique<QuickTrackAssociatorByHitsImpl>(iEvent.productGetter(),
                                                                  std::move(trackAssoc),
                                                                  clusterAssoc,
@@ -257,6 +261,7 @@ void MyTrackAssociator::analyze(const edm::Event &iEvent, const edm::EventSetup 
 
     reco::RecoToSimCollection myTrackToSim = impl->associateRecoToSim(TrackCollectionHandle, tpHandle);
 
+    //// ---- Marker 5 ---- ////
     // Associator loop
     for (size_t j = 0; j < GsfTrackCollectionHandle->size(); ++j)
     {
@@ -319,6 +324,7 @@ void MyTrackAssociator::analyze(const edm::Event &iEvent, const edm::EventSetup 
             }
         }
 
+        //// ---- Marker 6 ---- ////
         if (iassoctrack != myTrackToSim.end())
         {
 
@@ -376,15 +382,18 @@ void MyTrackAssociator::analyze(const edm::Event &iEvent, const edm::EventSetup 
                     tp_track[3] = assocv.x();
                     tp_track[4] = assocv.y();
 
+                    //// ---- Marker 7 ---- ////
                     track_tree->Fill();
 
                     std::cout << "Gsf total mixture filled" << std::endl;
 
                     for (size_t ic = 0; ic < vtxTSOS.components().size(); ++ic)
                     {
+                        //// ---- Marker 8 ---- ////
                         LocalVector assocp(vtxTSOS.surface().toLocal(GlobalVector(tref_track->px(), tref_track->py(), tref_track->pz())));
                         LocalPoint assocv(vtxTSOS.surface().toLocal(GlobalPoint(tref_track->vx(), tref_track->vy(), tref_track->vz())));
 
+                        //// ---- Marker 9 ---- ////
                         size_nc_weight[0] = j;
                         size_nc_weight[1] = vtxTSOS.components().size();
                         size_nc_weight[2] = vtxTSOS.components()[ic].weight();
@@ -425,6 +434,7 @@ void MyTrackAssociator::analyze(const edm::Event &iEvent, const edm::EventSetup 
                       << std::endl;
         }
     }
+    //// ---- Marker 10 ---- ///
 
     seedsuccessrate = float(assocseedfound) / float(indexEvent);
     mixturesuccessrate = float(mixturefound) / float(indexEvent);
